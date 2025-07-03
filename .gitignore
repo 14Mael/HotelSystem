@@ -1,0 +1,49 @@
+# --- 编译输出 ---
+*.class
+*.jar
+*.war
+*.ear
+/bin/
+/target/
+/build/
+/out/
+
+# --- 日志文件 ---
+*.log
+logs/
+
+# --- 开发环境文件 ---
+*.iml
+*.ipr
+*.iws
+.idea/
+.settings/
+.vscode/
+.classpath
+.project
+.DS_Store
+
+# --- 依赖管理工具 ---
+# Maven
+/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+
+# Gradle
+.gradle/
+/build/
+!gradle-wrapper.jar
+
+# --- 系统文件 ---
+*.swp
+*.bak
+*~
+~$*
+
+# --- 敏感文件 ---
+.env
+*.properties
+/config/application*.yml
+/config/application*.properties
