@@ -32,6 +32,7 @@ public class RoomView extends JFrame {
         Font labelFont = new Font("微软雅黑", Font.BOLD, 18);
         room.setBackground(new Color(240, 245, 250));
         add(room);
+
         // 标题
         JLabel titleLabel = new JLabel("管理员菜单");
         titleLabel.setFont(labelFont);
@@ -41,6 +42,7 @@ public class RoomView extends JFrame {
         titleLabel.setBackground(new Color(80, 165, 230));
         titleLabel.setOpaque(true);
         room.add(titleLabel);
+
         // 返回
         JButton reBT = new JButton("返回");
         reBT.setFont(labelFont);
@@ -50,21 +52,25 @@ public class RoomView extends JFrame {
         reBT.setBounds(0, 0, 80, 40);
         reBT.addActionListener(this::reAction);
         room.add(reBT);
+
         // 房间号
         JLabel nameLabel = new JLabel("房间号码:");
         nameLabel.setFont(new Font("微软雅黑", Font.BOLD, 22));
         nameLabel.setBounds(400, 100, 100, 40);
         room.add(nameLabel);
-        //
+
+        //房间号下拉框
         roomnumTF = new JTextField();
         roomnumTF.setFont(new Font("微软雅黑", Font.BOLD, 22));
         roomnumTF.setBounds(500, 105, 250, 35);
         room.add(roomnumTF);
+
         // 空闲房间
         JLabel roomLabel = new JLabel("房间类型:");
         roomLabel.setFont(new Font("微软雅黑", Font.BOLD, 22));
         roomLabel.setBounds(400, 180, 100, 40);
         room.add(roomLabel);
+
         // 房间类型下拉框
         roomBox = new JComboBox<>();
         try {
@@ -79,6 +85,7 @@ public class RoomView extends JFrame {
         roomBox.setFont(labelFont);
         roomBox.setSelectedIndex(-1);
         room.add(roomBox);
+
         // 添加
         JButton addBT = new JButton("添加信息");
         addBT.setFont(new Font("微软雅黑", Font.BOLD, 18));
@@ -115,7 +122,7 @@ public class RoomView extends JFrame {
                             "错误", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                // 尝试将新房间信息添加到数据库
+                // 将新房间信息添加到数据库
                 boolean isAdded = roomDAO.addRoom(roomNum, typeId);
                 if (isAdded) {
                     JOptionPane.showMessageDialog(this, "房间添加成功！",

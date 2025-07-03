@@ -39,6 +39,7 @@ public class CostView extends JFrame {
         Font labelFont = new Font("微软雅黑", Font.BOLD, 18);
         cost.setBackground(new Color(240, 245, 250));
         add(cost);
+
         // 标题
         JLabel titleLabel = new JLabel("管理员菜单");
         titleLabel.setFont(labelFont);
@@ -48,6 +49,7 @@ public class CostView extends JFrame {
         titleLabel.setBackground(new Color(80, 165, 230));
         titleLabel.setOpaque(true);
         cost.add(titleLabel);
+
         // 返回
         JButton reBT = new JButton("返回");
         reBT.setFont(labelFont);
@@ -57,11 +59,13 @@ public class CostView extends JFrame {
         reBT.setBounds(0, 0, 80, 40);
         reBT.addActionListener(this::reAction);
         cost.add(reBT);
+
         // 空闲房间
         JLabel roomLabel = new JLabel("房间类型:");
         roomLabel.setFont(new Font("微软雅黑", Font.BOLD, 22));
         roomLabel.setBounds(400, 100, 100, 40);
         cost.add(roomLabel);
+
         // 房间类型下拉框
         costroomBox = new JComboBox<>();
         try {
@@ -76,16 +80,19 @@ public class CostView extends JFrame {
         costroomBox.setFont(labelFont);
         costroomBox.setSelectedIndex(-1);
         cost.add(costroomBox);
+
         // 价格
         JLabel nameLabel = new JLabel("修改价格:");
         nameLabel.setFont(new Font("微软雅黑", Font.BOLD, 22));
         nameLabel.setBounds(400, 180, 100, 40);
         cost.add(nameLabel);
+
         // 价格输入框
         priceTF = new JTextField();
         priceTF.setFont(new Font("微软雅黑", Font.BOLD, 22));
         priceTF.setBounds(500, 185, 250, 35);
         cost.add(priceTF);
+
         // 修改按钮
         JButton costBT = new JButton("修改");
         costBT.setFont(labelFont);
@@ -101,7 +108,6 @@ public class CostView extends JFrame {
     private void reAction(ActionEvent e) {
         this.dispose();
         new MainView().setVisible(true);
-
     }
 
     private void costAction(ActionEvent actionEvent) {
@@ -124,6 +130,5 @@ public class CostView extends JFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "请输入有效的价格！");
         }
-
     }
 }

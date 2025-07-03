@@ -18,11 +18,21 @@ public class LoginView extends JFrame {
         initUI();
     }
 
+    private void initFrame() {
+        setTitle("管理员登录系统");
+        setSize(1200, 720);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+        setResizable(false);
+    }
+
     private void initUI() {
         // 主面板
         JPanel main = new JPanel(null);
         main.setBackground(new Color(240, 245, 250));
         add(main);
+
         // 标题
         Font titleFont = new Font("微软雅黑", Font.BOLD, 36);
         JLabel titleLabel = new JLabel("宾馆房客管理系统");
@@ -31,6 +41,7 @@ public class LoginView extends JFrame {
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         titleLabel.setBounds(450, 100, 300, 50);
         main.add(titleLabel);
+
         // 用户名
         Font labelFont = new Font("微软雅黑", Font.BOLD, 22);
         JLabel nameLabel = new JLabel("用户账号:");
@@ -38,17 +49,20 @@ public class LoginView extends JFrame {
         nameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         nameLabel.setBounds(400, 200, 150, 30);
         main.add(nameLabel);
+
         // 用户名输入框
         nameTF = new JTextField();
         nameTF.setFont(new Font("微软雅黑", Font.PLAIN, 16));
         nameTF.setBounds(560, 200, 185, 35);
         main.add(nameTF);
+
         // 密码
         JLabel pwdLabel = new JLabel("用户密码:");
         pwdLabel.setFont(labelFont);
         pwdLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         pwdLabel.setBounds(400, 260, 150, 30);
         main.add(pwdLabel);
+
         // 密码输入框
         pwdTF = new JPasswordField();
         pwdTF.setFont(new Font("微软雅黑", Font.PLAIN, 16));
@@ -62,12 +76,12 @@ public class LoginView extends JFrame {
         submitBT.setForeground(Color.WHITE);
         submitBT.setFocusPainted(false);
         submitBT.setBounds(500, 330, 200, 45);
-        submitBT.addActionListener(this::loginActionPerformed);
+        submitBT.addActionListener(this::loginAction);
         main.add(submitBT);
 
     }
 
-    private void loginActionPerformed(ActionEvent e) {
+    private void loginAction(ActionEvent e) {
         String username = nameTF.getText().trim();
         String password = new String(pwdTF.getPassword());
 
@@ -92,15 +106,6 @@ public class LoginView extends JFrame {
                     "系统错误", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
-    }
-
-    private void initFrame() {
-        setTitle("管理员登录系统");
-        setSize(1200, 720);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
-        setResizable(false);
     }
 
     public static void main(String[] args) {

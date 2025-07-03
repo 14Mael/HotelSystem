@@ -53,6 +53,7 @@ public class CustomerDAO extends BaseDAO {
             if (conn != null) conn.close();
         }
     }
+
     // 获取退房时间为空的人的姓名 退房时间为空代表还没有退房
     public List<String> getCheckinName() {
         List<String> customerNames = new ArrayList<>();
@@ -86,7 +87,6 @@ public class CustomerDAO extends BaseDAO {
         return customerNames;
     }
 
-
     // 查询所有顾客
     public List<String[]> getAllCustomer() throws SQLException, ClassNotFoundException {
         List<String[]> customer = new ArrayList<>();
@@ -105,6 +105,7 @@ public class CustomerDAO extends BaseDAO {
         }
         return customer;
     }
+
     // 按照名字查询或模糊查询
     public List<String[]> getCustomersByName(String name) throws SQLException, ClassNotFoundException {
         List<String[]> customers = new ArrayList<>();
@@ -125,6 +126,7 @@ public class CustomerDAO extends BaseDAO {
         }
         return customers;
     }
+
     // 按照房间号查询
     public List<String[]> getCustomersByRoom(String roomNumber) throws SQLException, ClassNotFoundException {
         List<String[]> customer = new ArrayList<>();
@@ -145,6 +147,7 @@ public class CustomerDAO extends BaseDAO {
         }
         return customer;
     }
+
     // 两者都有值，则两者都是条件
     public List<String[]> getCustomerByRoomAndName(String roomNumber, String name)
             throws SQLException, ClassNotFoundException {

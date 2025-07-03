@@ -25,8 +25,9 @@ public class RecordDAO extends BaseDAO {
         return recordId;
     }
 
-    public boolean processCheckoutWithProcedure(int recordId) throws ClassNotFoundException, SQLException {
-        // 检查 recordId 是否有效
+    // 调用存储过程
+    public boolean CheckoutProcedure(int recordId) throws ClassNotFoundException, SQLException {
+        // 检查 recordId 是否有效 方法在下面
         if (!isValidRecordId(recordId)) {
             System.err.println("Invalid recordId: " + recordId);
             throw new SQLException("无效的入住记录");
@@ -41,6 +42,7 @@ public class RecordDAO extends BaseDAO {
         }
     }
 
+    // 判断这个值在record表中有没有
     private boolean isValidRecordId(int recordId) throws ClassNotFoundException, SQLException {
         String sql = "SELECT COUNT(*) FROM record WHERE record_id = ?";
         try (Connection conn = getConnection();
@@ -55,7 +57,8 @@ public class RecordDAO extends BaseDAO {
         return false;
     }
 
-    public List<Map<String, Object>> calculateRoomRevenue(Date startTime, Date endTime) {
+    // 调用存储过程
+    public List<Map<String, Object>> calculateProcedure(Date startTime, Date endTime) {
         List<Map<String, Object>> records = new ArrayList<>();
 
         try (Connection conn = getConnection();
@@ -86,7 +89,6 @@ public class RecordDAO extends BaseDAO {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
         return records;
     }
 }

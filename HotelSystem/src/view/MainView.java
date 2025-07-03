@@ -28,6 +28,7 @@ public class MainView extends JFrame {
         Font labelFont = new Font("微软雅黑", Font.BOLD, 18);
         main.setBackground(new Color(240, 245, 250));
         add(main);
+
         // 标题
         JLabel titleLabel = new JLabel("宾馆管理系统");
         titleLabel.setFont(labelFont);
@@ -37,6 +38,7 @@ public class MainView extends JFrame {
         titleLabel.setBackground(new Color(80, 165, 230));
         titleLabel.setOpaque(true);
         main.add(titleLabel);
+
         // 增加
         JButton addBT = new JButton("入住办理");
         addBT.setFont(labelFont);
@@ -46,6 +48,7 @@ public class MainView extends JFrame {
         addBT.setBounds(280, 100, 240, 40);
         addBT.addActionListener(this::addAction);
         main.add(addBT);
+
         // 删除
         JButton delBT = new JButton("退房办理");
         delBT.setFont(labelFont);
@@ -55,6 +58,7 @@ public class MainView extends JFrame {
         delBT.setBounds(280, 200, 240, 40);
         delBT.addActionListener(this::delAction);
         main.add(delBT);
+
         // 查询
         JButton searchBT = new JButton("查询顾客信息");
         searchBT.setFont(labelFont);
@@ -64,6 +68,7 @@ public class MainView extends JFrame {
         searchBT.setBounds(280, 300, 240, 40);
         searchBT.addActionListener(this::searchAction);
         main.add(searchBT);
+
         // 房间
         JButton roomBT = new JButton("房间类型信息");
         roomBT.setFont(labelFont);
@@ -73,6 +78,7 @@ public class MainView extends JFrame {
         roomBT.setBounds(680, 100, 240, 40);
         roomBT.addActionListener(this::roomAction);
         main.add(roomBT);
+
         // 价格
         JButton costBT = new JButton("房间价格管理");
         costBT.setFont(labelFont);
@@ -82,6 +88,7 @@ public class MainView extends JFrame {
         costBT.setBounds(680, 200, 240, 40);
         costBT.addActionListener(this::costAction);
         main.add(costBT);
+
         // 费用
         JButton updateBT = new JButton("费用信息管理");
         updateBT.setFont(labelFont);
@@ -91,6 +98,7 @@ public class MainView extends JFrame {
         updateBT.setBounds(680, 300, 240, 40);
         updateBT.addActionListener(this::updateAction);
         main.add(updateBT);
+
         // 查询空闲房间
         JButton spaceBT = new JButton("查询空闲房间");
         spaceBT.setFont(labelFont);
@@ -100,7 +108,6 @@ public class MainView extends JFrame {
         spaceBT.setBounds(280, 400, 240, 40);
         spaceBT.addActionListener(this::spaceAction);
         main.add(spaceBT);
-
     }
 
     private void addAction(ActionEvent e) {

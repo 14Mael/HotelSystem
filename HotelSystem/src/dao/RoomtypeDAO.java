@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoomtypeDAO extends BaseDAO{
+    // 获取房间类型名
     public List<String> getroom_type() throws ClassNotFoundException, SQLException {
         List<String> options = new ArrayList<>();
         String sql = "SELECT type_name FROM room_type";
@@ -21,6 +22,7 @@ public class RoomtypeDAO extends BaseDAO{
         return options;
     }
 
+    // 通过房间类型名获取类型id
     public int getTypeId(String typeName) throws ClassNotFoundException, SQLException {
         String sql = "SELECT type_id FROM room_type WHERE type_name = ?";
         try (Connection conn = getConnection();

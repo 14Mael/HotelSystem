@@ -135,7 +135,9 @@ public class DelView extends JFrame {
                 return;
             }
 
-            boolean success = recordDAO.processCheckoutWithProcedure(recordId);
+            //因为这里的存储过程成功时的返回值是0
+            boolean success = recordDAO.CheckoutProcedure(recordId);
+            // 所以这里取非 表示成功执行
             if (!success) {
                 JOptionPane.showMessageDialog(this, "退房成功！");
             } else {

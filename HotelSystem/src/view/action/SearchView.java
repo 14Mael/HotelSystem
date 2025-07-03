@@ -36,6 +36,7 @@ public class SearchView extends JFrame {
         Font labelFont = new Font("微软雅黑", Font.BOLD, 18);
         search.setBackground(new Color(240, 245, 250));
         add(search);
+
         // 标题
         JLabel titleLabel = new JLabel("管理员菜单");
         titleLabel.setFont(labelFont);
@@ -45,6 +46,7 @@ public class SearchView extends JFrame {
         titleLabel.setBackground(new Color(80, 165, 230));
         titleLabel.setOpaque(true);
         search.add(titleLabel);
+
         // 返回
         JButton reBT = new JButton("返回");
         reBT.setFont(labelFont);
@@ -54,6 +56,7 @@ public class SearchView extends JFrame {
         reBT.setBounds(0, 0, 80, 40);
         reBT.addActionListener(this::reAction);
         search.add(reBT);
+
         // 房间
         JLabel roomLabel = new JLabel("查询房间:");
         roomLabel.setFont(new Font("微软雅黑", Font.BOLD, 22));
@@ -75,11 +78,13 @@ public class SearchView extends JFrame {
         roomBox.setSelectedIndex(-1);
         roomBox.setEditable(true);
         search.add(roomBox);
+
         // 姓名
         JLabel nameLabel = new JLabel("顾客姓名:");
         nameLabel.setFont(new Font("微软雅黑", Font.BOLD, 22));
         nameLabel.setBounds(350, 50, 100, 40);
         search.add(nameLabel);
+
         // 姓名下拉框
         nameBox = new JComboBox<>();
         try {
@@ -95,6 +100,7 @@ public class SearchView extends JFrame {
         nameBox.setSelectedIndex(-1);
         nameBox.setEditable(true);
         search.add(nameBox);
+
         // 查询
         JButton searchBT = new JButton("查询");
         searchBT.setFont(new Font("微软雅黑", Font.BOLD, 18));
@@ -104,6 +110,7 @@ public class SearchView extends JFrame {
         searchBT.setBounds(775, 50, 200, 45);
         searchBT.addActionListener(this::searchAction);
         search.add(searchBT);
+
         // 结果表格
         String[] columnNames = {"入住时间", "退房时间", "姓名", "房间号"};
         resultTb = new JTable(new DefaultTableModel(columnNames, 0));
@@ -130,16 +137,16 @@ public class SearchView extends JFrame {
             CustomerDAO dao = new CustomerDAO();
 
             if (room == null && name == null) {
-                List<String[]> customers = dao.getAllCustomer();
+                List<String[]> customers = dao.getAllCustomer();    // 全部顾客
                 displayResults(customers);
             } else if (room == null) {
-                List<String[]> customers = dao.getCustomersByName(name);
+                List<String[]> customers = dao.getCustomersByName(name);    // 根据姓名查找 包含模糊查找
                 displayResults(customers);
             } else if (name == null) {
-                List<String[]> customers = dao.getCustomersByRoom(room);
+                List<String[]> customers = dao.getCustomersByRoom(room);    // 根据房间号查找
                 displayResults(customers);
             } else {
-                List<String[]> customers = dao.getCustomerByRoomAndName(room, name);
+                List<String[]> customers = dao.getCustomerByRoomAndName(room, name);    // 根据房间号和姓名查找
                 displayResults(customers);
             }
         } catch (Exception e) {

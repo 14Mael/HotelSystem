@@ -33,6 +33,7 @@ public class SpaceView extends JFrame {
         Font labelFont = new Font("微软雅黑", Font.BOLD, 18);
         search.setBackground(new Color(240, 245, 250));
         add(search);
+
         // 标题
         JLabel titleLabel = new JLabel("管理员菜单");
         titleLabel.setFont(labelFont);
@@ -42,6 +43,7 @@ public class SpaceView extends JFrame {
         titleLabel.setBackground(new Color(80, 165, 230));
         titleLabel.setOpaque(true);
         search.add(titleLabel);
+
         // 返回
         JButton reBT = new JButton("返回");
         reBT.setFont(labelFont);
@@ -61,6 +63,7 @@ public class SpaceView extends JFrame {
         searchBT.setBounds(500, 50, 200, 45);
         searchBT.addActionListener(this::searchAction);
         search.add(searchBT);
+
         // 结果表格
         String[] columnNames = {"房间号", "状态", "类型", "价格"};
         resultTb = new JTable(new DefaultTableModel(columnNames, 0));
@@ -82,7 +85,7 @@ public class SpaceView extends JFrame {
     private void searchAction(ActionEvent actionEvent) {
         try {
             RoomDAO roomDAO = new RoomDAO();
-            List<String[]> spareRooms = roomDAO.getSpareRooms();
+            List<String[]> spareRooms = roomDAO.getSpareRooms();    // 获取空闲房间数据
             displayResults(spareRooms);
         } catch (Exception e) {
             e.printStackTrace();
